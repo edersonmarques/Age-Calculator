@@ -16,10 +16,21 @@
 	</head>
 	<body>
 		<main class="age-calculator">
-			<form action="./index.html" method="post">Day DD Month MM Year YYYY</form>
+			<form action="./index.html" method="post">
+				<label for="day-input">
+					Day
+					<input type="text" id="day-input" placeholder="DD" />
+				</label>
+				<label for="month-input">
+					Month <input type="text" id="month-input" placeholder="MM"
+				/></label>
+				<label for="year-input">
+					Year <input type="text" id="year-input" placeholder="YYYY"
+				/></label>
+			</form>
 			<div class="divider">
-				<span class="divisor-line"></span>
-				<button>
+				<span class="divider-line"></span>
+				<button class="submit-button" type="submit">
 					<img src="./assets/images/icon-arrow.svg" alt="arrow icon" />
 				</button>
 			</div>
