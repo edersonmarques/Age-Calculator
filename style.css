@@ -103,8 +103,8 @@ body {
 
 
 .years-results, .months-results, .days-results {
-    letter-spacing: 1.0625rem;
-    margin-right: -10px;
+    letter-spacing: 0rem;
+    margin-right: 7px;
     color: var(--Purple);
 }
 
@@ -123,7 +123,7 @@ body {
     .age-calculator {
         width: 90%;
         height: 490px;
-        padding: 1px;
+        padding: 0px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -157,11 +157,18 @@ body {
 
     .results {
         width: 100%;
-        font-size: 3rem;
+        margin: 0;
+        border: 0;
+        font-size: 3.4rem;
         line-height: 3rem;
-        padding: 0 20px;
-        font-size: 3.5rem;
+        position: relative;
+        left: 20px;
     }
+
+    .results div span {
+        margin-right: 10px;
+    }
+    
 
     .date-inputs label  {
         font-weight: 800;
