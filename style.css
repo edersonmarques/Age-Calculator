@@ -118,6 +118,45 @@ body {
     caret-color: var(--Purple);
 }
 
+@media (max-width: 900px) {
+    
+    .age-calculator {
+        width: 90%;
+        height: 490px;
+    }
+
+    .date-inputs {
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .date-inputs label {
+        width: 33%;
+    }
+
+    .date-inputs label input {
+        font-size: 2rem;
+        
+    }
+
+    .date-inputs label input::placeholder {
+        color: transparent;
+    }
+
+    .results {
+        width: 100%;
+        font-size: 3rem;
+        line-height: 3rem
+    }
+
+    .date-inputs label  {
+        font-weight: 800;
+        color: var(--Smokey-Grey);
+        font-size: 0.7rem;
+    }
+}
+
 
 
 
