@@ -123,21 +123,32 @@ body {
     .age-calculator {
         width: 90%;
         height: 490px;
+        padding: 1px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px 20px 100px 20px;
     }
 
     .date-inputs {
         width: 100%;
         justify-content: center;
-        gap: 20px;
+        gap: 15px;
+        margin-top: 26px;
     }
 
     .date-inputs label {
-        width: 33%;
+        width: 26%;
+        letter-spacing: 0.1rem;
     }
 
     .date-inputs label input {
-        font-size: 2rem;
-        
+        font-size: 1.5rem;
+        position: relative;
+        top: -5px;
+        padding-left: 0.9rem;
+        font-weight: 700;
     }
 
     .date-inputs label input::placeholder {
@@ -147,13 +158,60 @@ body {
     .results {
         width: 100%;
         font-size: 3rem;
-        line-height: 3rem
+        line-height: 3rem;
+        padding: 0 20px;
+        font-size: 3.5rem;
     }
 
     .date-inputs label  {
         font-weight: 800;
         color: var(--Smokey-Grey);
-        font-size: 0.7rem;
+        font-size: 0.8rem;
+        height: 83px;
+        
+    }
+
+    .divider {
+        margin: 48px auto;
+        width: 94.5%;
+        text-align: center;
+    }
+
+    .divider-line {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .divider .calculator-button {
+        position: relative;
+        left: 0;
+        top: -58px;
+        width: 65px;
+        height: 65px;
+    }
+
+    .divider .calculator-button img {
+        width: 25px;
+    } 
+
+    .years, .months, .days {
+        position: relative;
+        top: 8px;
+        letter-spacing: 0rem;
+    }
+
+    .years-results, .months-results, .days-results {
+        letter-spacing: 0rem;
+        position: relative;
+        margin-right: 0.4rem;
+    }
+
+    .months {
+        top: 1.3rem;
+    }
+
+    .days {
+        top: 2.3rem;
     }
 }
 
