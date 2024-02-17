@@ -34,12 +34,12 @@ body {
     padding: 55px;
 }
 
-.date-form {
+.date-inputs {
     display: flex;
     gap: 33px;
 }
 
-.date-form label  {
+.date-inputs label  {
     display: flex;
     flex-direction: column;
     width: 160px;
@@ -49,7 +49,7 @@ body {
     letter-spacing: 0.3rem;
 }
 
-.date-form label input {
+.date-inputs label input {
     margin-top: 10px;
     height: 72px;
     padding-left: 23px;
@@ -68,10 +68,10 @@ body {
     margin-top: 10px;
     width: 93%;
     height: 1px;
-    background-color: black;
+    background-color: var(--Light-Grey);
 }
 
-.divider .submit-button {
+.divider .calculator-button {
     position: relative;
     left: calc(100% - 96px);
     bottom: 74px;
@@ -82,3 +82,42 @@ body {
     height: 95px;
     border-radius: 100px;
 }
+
+.divider .calculator-button:hover {
+    cursor: pointer;
+}
+
+.divider .calculator-button:active {
+    background-color: var(--Off-Black);
+}
+
+.results {
+    font-size: 6.5rem;
+    position: relative;
+    font-weight: 800;
+    font-style: italic;
+    bottom: 74px;
+    line-height: 7.1rem;
+    letter-spacing: -0.1rem;
+}
+
+
+.years-results, .months-results, .days-results {
+    letter-spacing: 1.0625rem;
+    margin-right: -10px;
+    color: var(--Purple);
+}
+
+.date-inputs label input:focus::placeholder {
+    color: transparent;
+}
+
+.date-inputs label input:focus {
+    border: 1px solid var(--Purple);
+    outline: none;
+    caret-color: var(--Purple);
+}
+
+
+
+
