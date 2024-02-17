@@ -59,6 +59,38 @@ body {
     border-radius: 10px;    
 }
 
+
+.on-error {
+    height: 680px;
+}
+
+.on-error .date-inputs label, .on-error .date-inputs label input {
+    color: var(--Light-Red);
+}
+
+.on-error .date-inputs label input {
+    border: 1px solid var(--Light-Red);
+}
+
+.errors-section {
+    display: none;
+}
+
+.on-error .errors-section {
+    display: flex;
+    gap: 33px;
+    margin-top: 9px;
+    font-size: 0.88rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.error-warner {
+    color: var(--Light-Red);
+    width: 160px;
+    
+}
+
 .divider {
     margin-top:48px;
 }
@@ -154,6 +186,18 @@ body {
     .date-inputs label input::placeholder {
         color: transparent;
     }
+
+    .on-error .errors-section {
+        justify-content: center;
+        width: 100%;
+        gap: 15px;
+        font-size: 0.487rem;
+    }
+    
+    .error-warner {
+        width: 26%;        
+    }
+    
 
     .results {
         width: 100%;
