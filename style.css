@@ -215,6 +215,42 @@ body {
     }
 }
 
+@media (max-width: 330px) {
 
+    .age-calculator {
+        height: fit-content;
+        border-radius: 20px;
+    }
+
+    .date-inputs {
+        flex-direction: column;
+        height: fit-content;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .date-inputs label {
+        width: 90%;
+    }
+
+    .divider .calculator-button {
+        top: -45px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .divider .calculator-button img {
+        width:15px;
+    }
+
+    .results {
+        font-size: 2rem;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
 
 
