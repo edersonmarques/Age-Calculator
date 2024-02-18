@@ -59,10 +59,6 @@ function inputTreatment(date_values) {
         inputDate.getUTCDate() === date_values.day)) {
             main.classList.add('on-error');
             warner1.textContent = "Must be a valid date";
-            console.log(date_values);
-            console.log(inputDate.getUTCFullYear());
-            console.log(inputDate.getUTCMonth());
-            console.log(inputDate.getUTCDate());
         } else if ((inputDate > currentDate)) {
             main.classList.add('on-error');
             warner1.textContent = "Must be on past";
