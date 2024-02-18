@@ -2,6 +2,38 @@ function stringifyDate(day, month, year) {
     return `${String(year)}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 };
 
+function calculateAge(currentDate, inputDate) {
+    let DifferenceYears = currentDate.getFullYear() - inputDate.getFullYear();
+    let DifferenceMonths = currentDate.getMonth() - inputDate.getMonth();
+    let DifferenceDays = currentDate.getDate() - inputDate.getDate();
+
+    console.log(currentDate);
+    console.log(inputDate);
+
+    if (DifferenceMonths < 0) {
+        DifferenceYears --;
+        DifferenceMonths = 12 + DifferenceMonths;
+    }
+
+    if (DifferenceDays < 0) {
+        if (DifferenceMonths > 0) {
+            DifferenceMonths --;
+        } else {
+            DifferenceYears --;
+            DifferenceMonths = 11;
+        }
+    }
+
+    const days_output = document.querySelector('.days-results');
+    const months_output = document.querySelector('.months-results'); 
+    const years_output = document.querySelector('.years-results');
+
+    days_output.textContent = DifferenceDays;
+    months_output.textContent = DifferenceMonths;
+    years_output.textContent = DifferenceYears;
+    return;
+};
+
 function inputTreatment(date_values) { 
     const main = document.querySelector('.age-calculator');
     main.classList.remove('on-error');
@@ -49,9 +81,16 @@ function inputTreatment(date_values) {
 
 
     if (main.classList.contains('on-error')) {
+        const days_output = document.querySelector('.days-results');
+        const months_output = document.querySelector('.months-results'); 
+        const years_output = document.querySelector('.years-results');
+
+        days_output.textContent = "- -";
+        months_output.textContent = "- -";
+        years_output.textContent = "- -";
         return;
     } else {
-        const currentDate = new Date();
+        const currentDate = new Date;
         const inputDate = new Date(stringifyDate(date_values.day, date_values.month, date_values.year));
 
         if (isNaN(inputDate) || !(inputDate.getUTCFullYear() === date_values.year &&
@@ -59,11 +98,14 @@ function inputTreatment(date_values) {
         inputDate.getUTCDate() === date_values.day)) {
             main.classList.add('on-error');
             warner1.textContent = "Must be a valid date";
+            return;
         } else if ((inputDate > currentDate)) {
             main.classList.add('on-error');
             warner1.textContent = "Must be on past";
+            return;
         } else {
             calculateAge(currentDate, inputDate);
+            return;
         }
     }
 };
@@ -76,5 +118,6 @@ calculate_button.addEventListener('click', () => {
         year: undefined,
     };
     inputTreatment(date_values);
+    return;
 });
 
