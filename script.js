@@ -1,5 +1,5 @@
 function stringifyDate(day, month, year) {
-    return `${String(month).padStart(2, '0')}/${String(day).padStart(2, '0')}/${String(year).padStart(4, '0')}`
+    return `${String(year)}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 };
 
 function inputTreatment(date_values) { 
@@ -11,15 +11,64 @@ function inputTreatment(date_values) {
     warner1.textContent = "";
     warner2.textContent = "";
     warner3.textContent = "";
+
+    const day_input = document.querySelector('#day-input');
+    const month_input = document.querySelector('#month-input');
+    const year_input = document.querySelector('#year-input');
+
+    date_values.day = Number(day_input.value);
+    date_values.month = Number(month_input.value);
+    date_values.year = Number(year_input.value);
+        
+    if (day_input.value === "") {
+        main.classList.add('on-error');
+        warner1.textContent = "This field is required";
+    } else if (isNaN(date_values.day) || date_values.day < 1 || date_values.day > 31) {
+        main.classList.add('on-error');
+        warner1.textContent = "Must be a valid day";
+    }
+
+    if (month_input.value === "") {
+        main.classList.add('on-error');
+        warner2.textContent = "This field is required";
+    } else if (isNaN(date_values.month) || date_values.month < 1 || date_values.month > 12) {
+        main.classList.add('on-error');
+        warner2.textContent = "Must be a valid month";
+    }
     
-    if (date_values.year === "" || date_values.year === undefined) {
+    if (year_input.value === "") {
         main.classList.add('on-error');
         warner3.textContent = "This field is required";
-        return;
+    } else if (isNaN(date_values.year)) {
+        main.classList.add('on-error');
+        warner3.textContent = "Must be a valid year";
     } else if (date_values.year <= 1900) {
         main.classList.add('on-error');
         warner3.textContent = "Must be after 1900";
+    }
+
+
+    if (main.classList.contains('on-error')) {
         return;
+    } else {
+        const currentDate = new Date();
+        const inputDate = new Date(stringifyDate(date_values.day, date_values.month, date_values.year));
+
+        if (isNaN(inputDate) || !(inputDate.getUTCFullYear() === date_values.year &&
+        inputDate.getUTCMonth() + 1 === date_values.month &&
+        inputDate.getUTCDate() === date_values.day)) {
+            main.classList.add('on-error');
+            warner1.textContent = "Must be a valid date";
+            console.log(date_values);
+            console.log(inputDate.getUTCFullYear());
+            console.log(inputDate.getUTCMonth());
+            console.log(inputDate.getUTCDate());
+        } else if ((inputDate > currentDate)) {
+            main.classList.add('on-error');
+            warner1.textContent = "Must be on past";
+        } else {
+            calculateAge(currentDate, inputDate);
+        }
     }
 };
 
@@ -30,12 +79,6 @@ calculate_button.addEventListener('click', () => {
         month: undefined,
         year: undefined,
     };
-    const day_input = document.querySelector('#day-input');
-    date_values.day = Number(day_input.value);
-    const month_input = document.querySelector('#month-input');
-    date_values.month = Number(month_input.value);
-    const year_input = document.querySelector('#year-input');
-    date_values.year = Number(year_input.value);
     inputTreatment(date_values);
 });
 
