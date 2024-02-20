@@ -49,19 +49,6 @@ Users should be able to:
 - Flexbox
 - JavaScript
 
-### What I learned
-
-```html
-<h1></h1>
-```
-```css
-.class {
-}
-```
-```js
-
-```
-
 ## Author
 
 - Frontend Mentor - [@edersonmarques](https://www.frontendmentor.io/profile/edersonmarques)
