@@ -7,9 +7,6 @@ function calculateAge(currentDate, inputDate) {
     let DifferenceMonths = currentDate.getUTCMonth() - inputDate.getUTCMonth();
     let DifferenceDays = currentDate.getUTCDate() - inputDate.getUTCDate();
 
-    console.log(currentDate);
-    console.log(inputDate);
-
     if (DifferenceMonths < 0) {
         DifferenceYears --;
         DifferenceMonths = 12 + DifferenceMonths;
@@ -124,14 +121,3 @@ calculate_button.addEventListener('click', () => {
     inputTreatment(date_values);
     return;
 });
-
-
-// const date_test = new Date("2004-02-21");
-// console.log(date_test);
-
-// var now_utc = Date.UTC(date_test.getUTCFullYear(), date_test.getUTCMonth(),
-//                 date_test.getUTCDate(), date_test.getUTCHours(),
-//                 date_test.getUTCMinutes(), date_test.getUTCSeconds());
-
-// console.log(new Date(now_utc));
-// console.log(date_test.toISOString());
