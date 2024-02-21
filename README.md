@@ -9,7 +9,6 @@ This is a solution to the [Age calculator app challenge on Frontend Mentor](http
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
 - [Author](#author)
 
 
