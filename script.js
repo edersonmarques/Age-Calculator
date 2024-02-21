@@ -3,9 +3,9 @@ function stringifyDate(day, month, year) {
 };
 
 function calculateAge(currentDate, inputDate) {
-    let DifferenceYears = currentDate.getFullYear() - inputDate.getFullYear();
-    let DifferenceMonths = currentDate.getMonth() - inputDate.getMonth();
-    let DifferenceDays = currentDate.getDate() - inputDate.getDate();
+    let DifferenceYears = currentDate.getUTCFullYear() - inputDate.getUTCFullYear();
+    let DifferenceMonths = currentDate.getUTCMonth() - inputDate.getUTCMonth();
+    let DifferenceDays = currentDate.getUTCDate() - inputDate.getUTCDate();
 
     console.log(currentDate);
     console.log(inputDate);
@@ -18,10 +18,12 @@ function calculateAge(currentDate, inputDate) {
     if (DifferenceDays < 0) {
         if (DifferenceMonths > 0) {
             DifferenceMonths --;
+            
         } else {
             DifferenceYears --;
             DifferenceMonths = 11;
         }
+        DifferenceDays = (new Date(inputDate.getUTCFullYear(), inputDate.getUTCMonth(), 0).getDate()) + DifferenceDays;
     }
 
     const days_output = document.querySelector('.days-results');
@@ -91,7 +93,9 @@ function inputTreatment(date_values) {
         return;
     } else {
         const currentDate = new Date;
-        const inputDate = new Date(stringifyDate(date_values.day, date_values.month, date_values.year));
+        currentDate.setUTCHours(0,0,0,0);
+        const temp_inputDate = new Date(stringifyDate(date_values.day, date_values.month, date_values.year));
+        const inputDate = new Date(temp_inputDate.toISOString());
 
         if (isNaN(inputDate) || !(inputDate.getUTCFullYear() === date_values.year &&
         inputDate.getUTCMonth() + 1 === date_values.month &&
@@ -121,3 +125,13 @@ calculate_button.addEventListener('click', () => {
     return;
 });
 
+
+// const date_test = new Date("2004-02-21");
+// console.log(date_test);
+
+// var now_utc = Date.UTC(date_test.getUTCFullYear(), date_test.getUTCMonth(),
+//                 date_test.getUTCDate(), date_test.getUTCHours(),
+//                 date_test.getUTCMinutes(), date_test.getUTCSeconds());
+
+// console.log(new Date(now_utc));
+// console.log(date_test.toISOString());
